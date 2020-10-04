@@ -1,10 +1,16 @@
 #lang racket/base
 
 (require (for-syntax racket/base)
+         racket/dict
          br/macro)
 
 (provide tabloid-program
          print
+         function-def
+         function-apply
+         conditional
+         compare
+         block-scope
          variable-assign
          value-expression
          true
@@ -15,7 +21,12 @@
 (define-macro tabloid-program #'#%module-begin)
 
 (define (print v)
-  (displayln (format "~a!" (if (string? v) (string-upcase v) (->str v)))))
+  (define printable
+    (cond
+      [(string? v) (string-upcase v)]
+      [(boolean? v) (if v "TOTALLY RIGHT" "COMPLETELY WRONG")]
+      [else v]))
+  (displayln (format "~a!" printable)))
 
 (define-macro (variable-assign ID VAL) #'(define ID VAL))
 
@@ -52,6 +63,40 @@
   (cond
     [(ormap NAN? operands) 'NAN]
     [else (apply - operands)]))
-  
+
+;; TODO "TIMES" "DIVIDED BY" "MODULO"
+
+(define-macro-cases conditional
+  [(_ EVAL IF-TRUE) #'(cond [EVAL IF-TRUE])]
+  [(_ EVAL IF-TRUE IF-FALSE) #'(cond [EVAL IF-TRUE] [else IF-FALSE])])
+
+(define (compare left op right)
+  (define vals (list left right))
+  (case op
+    [("IS ACTUALLY") (equal? left right)]
+    [("BEATS") (coerce-compare 'bigger vals)]
+    [("SMALLER THAN") (coerce-compare 'smaller vals)]))
+
+(define (coerce-compare op vals)
+  (define funcs `(((string . bigger) . ,string>?)
+                  ((string . smaller) . ,string<?)
+                  ((other . bigger) . ,>)
+                  ((other . smaller). ,<)))
+  (cond
+    [(ormap string? vals) (apply (dict-ref funcs `(string . ,op)) (map ->str vals))]
+    [else (apply (dict-ref funcs `(other . ,op)) (map ->number vals))]))
+
+;; Tabloid functions can contain only one statement
+(define-macro (function-def ID+ARGS EXPR)
+  #'(define ID+ARGS EXPR))
+
+(define-macro (block-scope EXPR ...)
+  (with-syntax ([shocking-return (datum->syntax caller-stx 'shocking-return)])
+    #'(let/cc shocking-return
+        (begin EXPR ...))))
+
+(define-macro (function-apply FUNC ARG ...)
+  #'(apply FUNC (list ARG ...)))
+
 (module+ test
   (require rackunit))

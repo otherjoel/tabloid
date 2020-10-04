@@ -38,14 +38,14 @@
       (lexer-srcloc
        [whitespace (next-token)] ; “In Tabloid, newlines are not significant.”
        [reserved-phrases lexeme]
-       [(:or "(" ")") lexeme]
+       [(:or "(" ")" ",") lexeme]
 
        ;; Datum literals
        [matching-single-quotes (token 'STRING (trim-ends "'" lexeme "'"))]
        [(:: (:? "-") (:+ (char-set ".01234567890"))) (token 'NUMBER (string->number lexeme))]
 
        ;; Identifiers can contain letters, numbers, and punctuation))
-       [(:: (:+ (:- (:or alphabetic punctuation numeric) (:or "(" ")"))))
+       [(:: (:+ (:- (:or alphabetic punctuation numeric) (:or "(" ")" ","))))
         (token 'IDENTIFIER (string->symbol lexeme))]))
     
     (tabloid-lexer port))

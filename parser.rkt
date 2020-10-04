@@ -6,13 +6,13 @@
 
 tabloid-program: statement+
 
-@statement: print | value-expression | variable-assign | function-def | program-end
+@statement: print | value-expression | variable-assign | function-def | program-end | shocking-return
 
 print: /"YOU WON'T WANT TO MISS" value-expression
 
 variable-assign: /"EXPERTS CLAIM" IDENTIFIER /"TO BE" value-expression
 
-value-expression: [value-expression ("PLUS" | "MINUS")]* (value | product | function-apply | conditional | block-scope | compare)
+value-expression: [function-apply | value-expression ("PLUS" | "MINUS")]* (value | product | function-apply | conditional | block-scope | compare)
 
 product: [product ("TIMES" | "DIVIDED BY" | "MODULO")]* value
 

@@ -5,8 +5,7 @@ This is a quick-and-dirty Racket implementation of Linus Lee’s [Tabloid progra
 a simple language so it’s perfect for practing and demonstrating Racket’s language-oriented
 programming (LOP) features. 
 
-<figure><img src='scribblings/drracket-screenshot.png' width=718 height=738 alt="Screenshot of #lang
-tabloid in the DrRacket editor"></figure>
+![](scribblings/drracket-screenshot.png)
 
 The [website][1] and the [README][4] were the only things I consulted. This implementation can run
 the Fibonacci and factorial example programs, and generally gives the same results for any given
@@ -61,6 +60,10 @@ this implementation:
 **Producing Output:** In OG Tabloid, expressions that evaluate to a value (e.g. expressions like
 `10` or `1 IS ACTUALLY 2` appearing all by themselves) do not by themselves produce any output. In
 Racket Tabloid, such expressions do produce output on the REPL.
+
+**Shocking developments optional:** Racket Tabloid allows you to return a value from a function
+without using `SHOCKING DEVELOPMENT`; the value of the last evaluated expression becomes the result
+of the function call.
 
 **Returning from any block:** Racket Tabloid allows `SHOCKING DEVELOPMENT` to be used within any
 `RUMOR HAS IT…END OF STORY` block expression. The program below produces no output in OG Tabloid,

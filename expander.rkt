@@ -26,12 +26,13 @@
 
 ;; “Everything printed by Tabloid is automatically capitalized, and an exclamation point is added.”
 (define (print v)
-  (define printable
-    (cond
-      [(string? v) (string-upcase v)]
-      [(boolean? v) (if v "TOTALLY RIGHT" "COMPLETELY WRONG")]
-      [else v]))
-  (displayln (format "~a!" printable)))
+  (unless (void? v)
+    (define printable
+      (cond
+        [(string? v) (string-upcase v)]
+        [(boolean? v) (if v "TOTALLY RIGHT" "COMPLETELY WRONG")]
+        [else v]))
+    (displayln (format "~a!" printable))))
 
 (define-macro (variable-assign ID VAL) #'(define ID VAL))
 

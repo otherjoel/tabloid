@@ -33,7 +33,7 @@ The code is pretty well commented, so crack open `main.rkt` to start a guided to
 Every `#lang tabloid` program evaluates to `#<void>`, which is the return value of `PLEASE LIKE AND
 SUBSCRIBE`
 
-### Differences from “OG Tabloid”
+### Differences from OG Tabloid
 
 I made a token effort to get most programs to produce the same results here as in OG Tabloid. For
 example, performing math operations (`PLUS`, `TIMES` etc) on values that differ in type produces the
@@ -58,12 +58,12 @@ this implementation:
 
 [3]: https://github.com/thesephist/tabloid#limitations
 
-**Output:** In OG Tabloid, expressions that evaluate to a value (e.g. expressions like `10` or `1 IS
-ACTUALLY 2` appearing all by themselves) do not by themselves produce any output. In Racket tabloid,
-such expressions do produce output on the REPL.
+**Producing Output:** In OG Tabloid, expressions that evaluate to a value (e.g. expressions like
+`10` or `1 IS ACTUALLY 2` appearing all by themselves) do not by themselves produce any output. In
+Racket Tabloid, such expressions do produce output on the REPL.
 
 **Returning from any block:** Racket Tabloid allows `SHOCKING DEVELOPMENT` to be used within any
-`RUMOR HAS IT…END OF STORY` block expression. The program below produces no output in RI Tabloid,
+`RUMOR HAS IT…END OF STORY` block expression. The program below produces no output in OG Tabloid,
 and `A!` in Racket Tabloid:
 
     #lang tabloid

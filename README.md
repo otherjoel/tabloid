@@ -9,8 +9,8 @@ programming (LOP) features.
 tabloid in the DrRacket editor"></figure>
 
 The [website][1] and the [README][4] were the only things I consulted. This implementation can run
-the Fibonacci and factorial example programs, and generally gives the same results, but has not been
-exhaustively tested. Like the original, this was a 6- or 7-hour project on my part.
+the Fibonacci and factorial example programs, and generally gives the same results for any given
+Tabloid code (see below), but has not been exhaustively tested. 
 
 Any contributions and comments are of course welcome.
 

@@ -29,7 +29,7 @@ conditional: /"WHAT IF" compare (statement | shocking-return)
 
 compare: value-expression ("IS ACTUALLY" | "BEATS" | "SMALLER THAN") value-expression
 
-function-def: /"DISCOVER HOW TO" id-and-arguments block-scope
+function-def: /"DISCOVER HOW TO" id-and-arguments statement
 
 /id-and-arguments: IDENTIFIER /"WITH" [IDENTIFIER /","]* IDENTIFIER
 

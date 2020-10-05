@@ -1,15 +1,17 @@
 # `#lang tabloid`: Clickbait programming in Racket
 
-This is a quick-and-dirty Racket implementation of [the Tabloid programming language][1] (hereafter
-“OG Tabloid”), using the basic techniques taught in [Beautiful Racket][2]. Tabloid is a simple
-language so it’s perfect for practing and demonstrating Racket’s language-oriented programming (LOP)
-features. The [website][1] and the [README][4] were the only things I consulted.
+This is a quick-and-dirty Racket implementation of Linus Lee’s [Tabloid programming language][1]
+(hereafter “OG Tabloid”), using the basic techniques taught in [Beautiful Racket][2]. Tabloid is
+a simple language so it’s perfect for practing and demonstrating Racket’s language-oriented
+programming (LOP) features. 
 
-This implementation can run the Fibonacci and factorial example programs, and generally gives the
-same results, but has not been exhaustively tested. Like the original, this was a 6- or 7-hour
-project on my part.
+The [website][1] and the [README][4] were the only things I consulted. This implementation can run
+the Fibonacci and factorial example programs, and generally gives the same results, but has not been
+exhaustively tested. Like the original, this was a 6- or 7-hour project on my part.
 
 Any contributions and comments are of course welcome.
+
+Thanks to Linus for this great project!
 
 [1]: https://tabloid.vercel.app
 [2]: https://beautifulracket.com

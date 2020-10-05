@@ -5,6 +5,7 @@
          br/macro)
 
 (provide tabloid-program
+         program-end
          print
          function-def
          function-apply
@@ -33,6 +34,8 @@
   (displayln (format "~a!" printable)))
 
 (define-macro (variable-assign ID VAL) #'(define ID VAL))
+
+(define (program-end) (void)) ; Tabloid programs always evaluate to <void>
 
 (define (true) #t)
 (define (false) #f)

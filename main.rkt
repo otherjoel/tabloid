@@ -4,8 +4,6 @@
          racket/match
          "parser.rkt") ; Provides the `parse` function
 
-(define debug-mode? (make-parameter #f))
-
 ;; This file includes the tokenizer and the reader. The reader passes the token stream to the
 ;; parser (see parser.rkt). The parser converts the tokens into an S-expression whose bindings are
 ;; provided by the expander (see expander.rkt)
@@ -99,10 +97,9 @@
   (define parsed-tree (parse src (make-tabloid-tokenizer in-port)))
   (define program
     (cond
-      [(debug-mode?) parsed-tree]
       [(not (equal? '(program-end) (last (syntax->datum parsed-tree))))
        (raise-user-error "A Tabloid program MUST end with PLEASE LIKE AND SUBSCRIBE")]
-      [else (datum->syntax #f (drop-right (syntax->datum parsed-tree) 1))]))
+      [else parsed-tree]))
   
   (strip-bindings
    (with-syntax ([PROGRAM-EXPRS program])

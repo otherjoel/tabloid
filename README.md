@@ -1,9 +1,12 @@
-# `#lang tabloid`: Clickbait programming in Racket
+# `#lang tabloid`: Clickbait programming in Racket 
 
 This is a quick-and-dirty Racket implementation of Linus Lee’s [Tabloid programming language][1]
 (hereafter “OG Tabloid”), using the basic techniques taught in [Beautiful Racket][2]. Tabloid is
 a simple language so it’s perfect for practing and demonstrating Racket’s language-oriented
 programming (LOP) features. 
+
+<figure><img src='scribblings/drracket-screenshot.png' width=718 height=738 alt="Screenshot of #lang
+tabloid in the DrRacket editor"></figure>
 
 The [website][1] and the [README][4] were the only things I consulted. This implementation can run
 the Fibonacci and factorial example programs, and generally gives the same results, but has not been
@@ -57,6 +60,8 @@ such expressions do produce output on the REPL.
 `RUMOR HAS IT…END OF STORY` block expression. The program below produces no output in RI Tabloid,
 and `A!` in Racket Tabloid:
 
+    #lang tabloid
+    
     EXPERTS CLAIM x TO BE 
       RUMOR HAS IT 
        WHAT IF (2 MODULO 2) IS ACTUALLY 0

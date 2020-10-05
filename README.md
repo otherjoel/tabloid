@@ -20,6 +20,12 @@ Thanks to Linus for this great project!
 [2]: https://beautifulracket.com
 [4]: https://github.com/thesephist/tabloid/blob/master/README.md
 
+## Use
+
+This package is not currently available on the package server. To be able to run `#lang tabloid`
+programs in your Racket installation, clone this repo and run `raco pkg install` from within the
+project’s main folder.
+
 ## Under the hood
 
 The code is pretty well commented, so crack open `main.rkt` to start a guided tour.

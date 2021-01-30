@@ -13,8 +13,8 @@ print: /"YOU WON'T WANT TO MISS" value-expression
 
 variable-assign: /"EXPERTS CLAIM" IDENTIFIER /"TO BE" value-expression
 
-value-expression: [value-expression ("PLUS" | "MINUS")]* (@value | product | function-apply | block-scope)
-product: [product ("TIMES" | "DIVIDED BY" | "MODULO")]* value-expression
+value-expression: [value-expression ("PLUS" | "MINUS")]* (product | function-apply | block-scope)
+product: [product ("TIMES" | "DIVIDED BY" | "MODULO")]* (@value | value-expression) 
 
 @value: NUMBER | STRING | boolean | IDENTIFIER | /"(" value-expression /")"
 

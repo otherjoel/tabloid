@@ -46,7 +46,7 @@ fact requires parentheses in order to use more than one infix operator in an exp
 Tabloid does allow these expressions to be chained without parentheses, and will correctly
 prioritize `TIMES`, `DIVIDED BY` and `MODULO` over `PLUS` and `MINUS`.
 
-As an illustration, the program below produces a parsing error in OG Tabloid, and outputs `26!` in
+As an illustration, the program below produces a parsing error in OG Tabloid, and outputs `12!` in
 this implementation:
 
     #lang tabloid
